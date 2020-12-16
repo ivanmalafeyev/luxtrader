@@ -5,6 +5,7 @@
     align-items: center;
     height: 75px;
     position: relative;
+    z-index: 50;
     @media (max-width: $md3+px) {
       justify-content: space-between;
     }

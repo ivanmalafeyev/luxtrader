@@ -233,6 +233,7 @@ body.lock {
           align-items: center;
   height: 75px;
   position: relative;
+  z-index: 50;
 }
 
 .header__logo {
