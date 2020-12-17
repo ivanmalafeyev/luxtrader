@@ -356,6 +356,49 @@ body.lock {
 .no-webp .user-header__link--4{
   background: url("../img/menu/user_menu/04.png") 0 center no-repeat; }
 
+.main-slider {
+  position: relative;
+}
+
+.main-slider__body {
+  min-width: 0;
+}
+
+.main-slider__control {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translate3d(-50%, 50%, 0);
+  -ms-transform: translate3d(-50%, 50%, 0);
+  transform: translate3d(-50%, 50%, 0);
+  width: 70px;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-slider__control::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
 .item-main-slider {
   padding: 30px 0 100px;
   position: relative;
@@ -364,6 +407,10 @@ body.lock {
 .item-main-slider__content {
   position: relative;
   z-index: 2;
+}
+
+.item-main-slider__container {
+  text-align: center;
 }
 
 .item-main-slider__text {
@@ -375,13 +422,63 @@ body.lock {
   line-height: 25px;
 }
 
+.item-main-slider__btn {
+  width: 250px;
+}
+
 .item-main-slider__bg {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-position: 0 -50px !important;
+}
+
+.control-main-slider__arrow {
+  position: relative;
+  z-index: 2;
+  background: url("../img/icons/main-slider/arrow.svg") 0 0 no-repeat;
+  height: 24px;
+  width: 14px;
+  cursor: pointer;
+}
+
+.control-main-slider__arrow--next {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.control-main-slider__decor {
+  position: relative;
+  z-index: 2;
+  margin: 0 12px;
+  -webkit-animation: rotate 5s infinite linear;
+          animation: rotate 5s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 ._ibg {
@@ -422,19 +519,94 @@ textarea.input {
 
 .btn {
   display: inline-block;
+  color: black !important;
+  position: relative;
+}
+
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+}
+
+.btn::before {
+  top: 0;
+  background-color: #c3a775;
+}
+
+.btn::after {
+  bottom: 0;
+  background-color: #8d642d;
+}
+
+.btn__body {
+  position: relative;
+  display: block;
+}
+
+.btn__body::before,
+.btn__body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 100%;
+}
+
+.btn__body::before {
+  left: 0;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#8e662f), to(#c2a674));
+  background-image: -o-linear-gradient(bottom, #8e662f 0%, #c2a674 100%);
+  background-image: linear-gradient(to top, #8e662f 0%, #c2a674 100%);
+}
+
+.btn__body::after {
+  right: 0;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#8e662f), to(#c2a674));
+  background-image: -o-linear-gradient(bottom, #8e662f 0%, #c2a674 100%);
+  background-image: linear-gradient(to top, #8e662f 0%, #c2a674 100%);
+}
+
+.btn__body span {
+  display: block;
+  position: relative;
   height: 50px;
   line-height: 50px;
   padding: 0px 33px;
-  font-size: 19px;
+  font-size: 16px;
+  font-family: pfdin;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  text-align: center;
+}
+
+.btn__body span:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#bb9c66), to(rgba(187, 156, 102, 0)));
+  background-image: -o-linear-gradient(bottom, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
+  background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
   background-color: black;
-  color: white !important;
+  opacity: 0.06;
+}
+
+.btn__body span:hover::after {
+  height: 100%;
+  opacity: 0.3;
 }
 
 .btn--w {
-  background-color: white;
-  color: black !important;
+  color: white !important;
 }
 
 .slick-slider {
@@ -518,6 +690,11 @@ textarea.input {
 }
 
 @media (max-width: 767.98px) {
+  .title__main {
+    font-size: 30px;
+    line-height: 30px;
+  }
+
   body.lock {
     width: 100%;
   }
@@ -545,7 +722,7 @@ textarea.input {
   }
 
   .menu__body {
-    background-color: rgba(29, 37, 43, 0.97);
+    background-color: rgba(29, 37, 43, 0.98);
     position: fixed;
     left: 0;
     top: 0;

@@ -2,6 +2,7 @@
 @@include("ibg.js");
 @@include("forms.js");
 @@include("responsive.js");
+@@include("my_swiper.js");
 
 const userIcon = document.querySelector(".user-header__icon");
 const userMenu = document.querySelector(".user-header__menu");
