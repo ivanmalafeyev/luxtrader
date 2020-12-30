@@ -1,13 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700&subset=cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700&display=swap&subset=cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular&display=swap);
 
 $fontfamily: "PT Sans";
+$mc: #bb9c66;
+$sqrt12: 0.71;
 $minwidth: 320px;
 $mw: 970;
 $md1: $mw + 12;
 // $md2: 979;
 $md2: 767.98;
 $md3: 767.98;
-$md4: 539.98;
+$md4: 500;
 
 @mixin font($font_name, $file_name, $weight, $style) {
   @font-face {
@@ -59,10 +62,10 @@ body {
   position: relative;
 
   .swiper-wrapper {
-    // align-items: stretch;
-    // @media (max-width: $md3+px) {
-    //   align-items: flex-start;
-    // }
+    align-items: stretch;
+    @media (max-width: $md3+px) {
+      align-items: flex-start;
+    }
   }
 
   // .main-slider__body
@@ -108,11 +111,16 @@ body {
   &__content {
     position: relative;
     z-index: 2;
+    height: 100%;
   }
 
   // .item-main-slider__container
   &__container {
     text-align: center;
+    @include flexbox();
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
   }
 
   // .item-main-slider__text
@@ -123,6 +131,7 @@ body {
     font-family: "PT Sans";
     font-size: 15px;
     line-height: 25px;
+    flex: 1 1 auto;
   }
 
   //.item-main-slider__btn
@@ -178,6 +187,102 @@ body {
   }
 }
 // =============================================================
+.lots {
+  padding: 85px 0 63px;
+  // .lots__container
+  &__container {
+  }
+
+  // .lots__header
+  &__header {
+    margin: 0px 0px 42px 0px;
+  }
+
+  // .lots__slider
+  &__slide {
+  }
+}
+
+.slide-lots {
+  margin: 0 -50px;
+  @media (max-width: $md1+px) {
+    margin: 0px -15px;
+  }
+  .swiper-wrapper {
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  // .slider-lots__body
+  &__body {
+    margin: 0px 0px 50px;
+  }
+
+  // .slider-lots__slide
+  &__slide {
+    flex: 1 0 auto;
+    padding: 0 50px;
+    @media (max-width: $md1+px) {
+      padding: 0 15px;
+    }
+  }
+
+  // .slider-lots__control
+  &__control {
+  }
+}
+
+.control-slider-lots {
+  @include flexbox();
+  justify-content: center;
+  align-items: center;
+  // .control-slider-lots__arrow
+  &__arrow {
+    cursor: pointer;
+    background: url("../img/lots-slider/arrow.svg") left no-repeat;
+    height: 35px;
+    flex: 0 0 108px;
+    @include flexbox();
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0px 42px 0px 0px;
+    @media (max-width: 430px) {
+      flex: 0 0 60px;
+      margin: 0px 32px 0px 0px;
+    }
+    &:after {
+      content: "";
+      width: 11px;
+      height: 11px;
+      border: 1px solid $mc;
+      border-radius: 50%;
+      margin: 0px -16px 0px 0px;
+    }
+    &:last-of-type {
+      transform: scaleX(-1);
+      margin: 0px 0px 0px 42px;
+      @media (max-width: 430px) {
+        margin: 0px 0px 0px 32px;
+      }
+    }
+  }
+
+  // .control-slider-lots__link
+  &__link {
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 100px;
+    height: 100px;
+    background: url("../img/lots-slider/circle.png") 0 0 no-repeat;
+
+    color: #000000;
+    font-family: "pfdin";
+    font-size: 21px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
 // =============================================================
 // =============================================================
 // =============================================================
@@ -300,7 +405,6 @@ textarea.input {
           #bb9c66 0%,
           rgba(187, 156, 102, 0) 100%
         );
-        background-color: black;
         opacity: 0.06;
       }
       &:hover {
@@ -314,6 +418,15 @@ textarea.input {
 
   &--w {
     color: white !important;
+  }
+
+  &--big {
+    .btn__body span {
+      padding: 0px 30px;
+      font-size: 21px;
+      font-weight: 500;
+      letter-spacing: normal;
+    }
   }
 }
 

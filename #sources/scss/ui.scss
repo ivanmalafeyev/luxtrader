@@ -1,3 +1,256 @@
+.block-header {
+  // .block-header__title
+  &__title {
+    margin: 0 0 20px 0;
+  }
+
+  // .block-header__decor
+  &__decor {
+  }
+}
+
+.decor-block {
+  @include flexbox();
+  align-items: center;
+  // .decor-block__items
+  &__items {
+    flex: 1 1 auto;
+    @include flexbox();
+    align-items: center;
+    &:last-of-type {
+      @include scale(-1);
+    }
+    &:before {
+      content: "";
+      height: 1px;
+      background-color: $mc;
+      flex: 1 1 auto;
+    }
+    &:after {
+      content: "";
+      width: (25px * $sqrt12);
+      height: (25px * $sqrt12);
+      border: 1px solid $mc;
+      @include rotate(-45deg);
+      flex: 0 0 (25px * $sqrt12);
+    }
+    span {
+      @include flexbox();
+      align-items: center;
+      margin: 0px 5px 0px 7px;
+      &:before {
+        content: "";
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        border: 1px solid $mc;
+      }
+      &:after {
+        content: "";
+        height: (15px * $sqrt12);
+        width: (15px * $sqrt12);
+        border: 1px solid $mc;
+        @include rotate(-45deg);
+        flex: 0 0 (15px * $sqrt12);
+        margin: 0px 6px 0 7px;
+      }
+    }
+  }
+
+  // .decor-block__icon
+  &__icon {
+    flex: 0 0 154px;
+    text-align: center;
+    img {
+      max-width: 70px;
+    }
+    @media (max-width: $md3+px) {
+      flex: 0 0 95px;
+    }
+  }
+}
+
+.lot {
+  @include flexbox();
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+
+  // .lot__header
+  &__header {
+    text-align: center;
+    margin: 0px 0px 30px 0px;
+    position: relative;
+  }
+
+  // .lot__img
+  &__img {
+    display: block;
+    border: 3px solid $mc;
+    padding: 0px 0px 97.6% 0px;
+  }
+
+  // .lot__timer
+  &__timer {
+  }
+
+  // .lot__title
+  &__title {
+    flex: 1 0 auto;
+    color: #000000;
+    font-family: "pfdin";
+    font-size: 21px;
+    font-weight: 500;
+    line-height: (25 / 21);
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    margin: 0px 0px ((30px / 25px) * 1em) 0px;
+    &:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: $md1+px) {
+      font-size: 18px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 21px;
+    }
+  }
+
+  // .lot__info
+  &__info {
+  }
+
+  &__btn {
+    margin: 0 auto;
+  }
+}
+
+.timer-lot {
+  width: (100px * $sqrt12);
+  height: (100px * $sqrt12);
+  @include tr(-50%, 50%, 0);
+  @include flexboxi();
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 0px 0px 0px 0px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  &:before {
+    content: "";
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    @include rotate(-45deg);
+    flex: 1 0 (100px * $sqrt12);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  // .timer-lot__icon
+  &__icon {
+    margin: 0px 0px 6px 0px;
+  }
+
+  // .timer-lot__item
+  &__item {
+    color: #000000;
+    font-family: "PT Sans Narrow";
+    font-size: 18px;
+  }
+}
+
+.info-lot {
+  @include flexbox();
+  justify-content: center;
+  margin: 0px 0px 35px 0px;
+  // .info-lot__stat
+  &__stat {
+    flex: 0 0 50px;
+    width: 50px;
+  }
+
+  // .info-lot__icon
+  &__icon {
+    margin: 0px 0px 8px 0px;
+  }
+
+  // .info-lot__value
+  &__value {
+    font-size: 14px;
+    text-align: center;
+    padding: 0px 0px 6px 0px;
+    border-bottom: 1px solid $mc;
+  }
+
+  // .info-lot__bet
+  &__bet {
+    flex: 1 1 auto;
+    @media (max-width: $md1+px) {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+.bet-info {
+  padding: 0px 5px;
+  position: relative;
+  @media (max-width: $md1+px) {
+    padding: 0px 15px;
+  }
+
+  &:after {
+    content: "";
+    border: 1px solid $mc;
+    position: absolute;
+    width: (100px * $sqrt12);
+    height: (100px * $sqrt12);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  div,
+  a {
+    position: relative;
+    z-index: 2;
+  }
+
+  // .bet-info__label
+  &__label {
+    font-size: 14px;
+    // line-height: 25px;
+    text-align: center;
+    margin: 0px 0px 5px 0px;
+  }
+
+  // .bet-info__value
+  &__value {
+    color: #1c242a;
+    font-family: BravoRG;
+    font-size: 50px;
+    text-align: center;
+    white-space: nowrap;
+    // margin: 0 0 10px 0;
+    @media (max-width: $md1+px) {
+      font-size: 35px;
+    }
+    @media (max-width: $md4+px) {
+      font-size: 50px;
+    }
+  }
+
+  // .bet-info__currency
+  &__currency {
+    // font-family: "ALS Rubl";
+    font-size: 14px;
+  }
+}
+
 .title {
   text-align: center;
 
@@ -16,10 +269,14 @@
     font-family: pfdin;
     font-size: 35px;
     line-height: 35px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 5.25px;
     &--w {
       color: #ffffff;
+    }
+    &--regular {
+      font-weight: 400;
     }
 
     @media (max-width: $md3+px) {
