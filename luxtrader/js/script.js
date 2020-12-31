@@ -223,6 +223,7 @@ var myLotsSwiper = new Swiper(".lots__slide", {
   // Optional parameters
   // direction: "vertical",
   loop: true,
+  speed: 800,
   // autoHeight: false,
   // slidesPerView: 1,
   // If we need pagination

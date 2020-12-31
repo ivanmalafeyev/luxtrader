@@ -31,6 +31,7 @@ const myLotsSwiper = new Swiper(".lots__slide", {
   // Optional parameters
   // direction: "vertical",
   loop: true,
+  speed: 800,
   // autoHeight: false,
   // slidesPerView: 1,
 
