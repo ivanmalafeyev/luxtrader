@@ -553,6 +553,86 @@ h6 {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.service {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.service__image {
+  height: 204px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 0px 8px 0px;
+}
+
+.service__title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  color: #ffffff;
+  font-family: "pfdin";
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.19048;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.service__text {
+  color: #bb9c66;
+  font-size: 15px;
+  line-height: 1.66667;
+  margin: 25px 0px 0px 0px;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.service__btn {
+  color: #ffffff;
+  font-family: "pfdin";
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.19048;
+  text-transform: uppercase;
+  letter-spacing: 2.12px;
+  position: relative;
+  display: block;
+  margin: 30px 0px 0px 0px;
+}
+
+.service__btn:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: #bb9c66;
+}
+
+.service__btn span {
+  background-color: #1c242a;
+  position: relative;
+  z-index: 2;
+  padding: 0px 18px;
+}
+
 body.lock {
   overflow: hidden;
 }
@@ -968,6 +1048,10 @@ body.lock {
   text-transform: uppercase;
 }
 
+.categories {
+  padding: 0px 0px 75px 0px;
+}
+
 .categories__container {
   overflow: hidden;
   position: relative;
@@ -1132,6 +1216,76 @@ body.lock {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background-color: #bb9c66;
+}
+
+.categories__text {
+  margin: 85px 0px 0px 0px;
+}
+
+.text-categories {
+  color: #333333;
+  font-size: 15px;
+  line-height: 1.66667;
+  text-align: left;
+}
+
+.text-categories p {
+  margin: 0px 0px 25px 0px;
+}
+
+.text-categories p:last-child {
+  margin: 0px 0px 0px 0px;
+}
+
+.no-webp .text-categories__body{
+  background: url("../img/categs/tbg_tile.png") 0 0 repeat-y; }
+
+.text-categories__body {
+  padding: 10px 0px 23px 130px;
+  position: relative;
+}
+
+.no-webp .text-categories__body:before{
+  background: url("../img/categs/tbg_h.png") 0 0 no-repeat; }
+
+.text-categories__body:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -5px;
+  width: 85px;
+  height: 11px;
+}
+
+.services {
+  padding: 55px 0px 50px;
+  background-color: #1c242a;
+}
+
+.services__header {
+  margin: 0px 0px 40px 0px;
+}
+
+.services__row {
+  margin: 0px -50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.services__column {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 33.33333%;
+          flex: 0 1 33.33333%;
+  max-width: 33.33333%;
+  padding: 0px 50px;
+  margin: 0px 0px 50px 0px;
 }
 
 ._ibg {
@@ -1380,6 +1534,13 @@ textarea.input {
         -ms-flex: 0 1 50%;
             flex: 0 1 50%;
   }
+
+  .services__column {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+    max-width: 50%;
+  }
 }
 
 @media (max-width: 890px) {
@@ -1561,6 +1722,18 @@ textarea.input {
         -ms-flex: 1 1 100%;
             flex: 1 1 100%;
   }
+
+  .services {
+    padding: 40px 0px 0px;
+  }
+
+  .services__column {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 100%;
+            flex: 0 1 100%;
+    max-width: 100%;
+    margin: 0px 0px 40px 0px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -1602,3 +1775,7 @@ textarea.input {
 .webp .user-header__link--4{ background: url(../img/menu/user_menu/04.webp) 0 center no-repeat; }
 
 .webp .control-slider-lots__link{ background: url(../img/lots-slider/circle.webp) 0 0 no-repeat; }
+
+.webp .text-categories__body{ background: url(../img/categs/tbg_tile.webp) 0 0 repeat-y; }
+
+.webp .text-categories__body:before{ background: url(../img/categs/tbg_h.webp) 0 0 no-repeat; }

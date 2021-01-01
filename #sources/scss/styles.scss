@@ -285,6 +285,7 @@ body {
 
 // =============================================================
 .categories {
+  padding: 0px 0px 75px 0px;
   // .categories__container
   &__container {
     overflow: hidden;
@@ -419,9 +420,89 @@ body {
       }
     }
   }
+
+  &__text {
+    margin: 85px 0px 0px 0px;
+  }
 }
 
+.text-categories {
+  color: #333333;
+  font-size: 15px;
+  line-height: (25 / 15);
+  text-align: left;
+  p {
+    margin: 0px 0px 25px 0px;
+    &:last-child {
+      margin: 0px 0px 0px 0px;
+    }
+  }
+
+  // .text-categories__container
+  &__container {
+  }
+
+  &__body {
+    padding: 10px 0px 23px 130px;
+    background: url("../img/categs/tbg_tile.png") 0 0 repeat-y;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -5px;
+      width: 85px;
+      height: 11px;
+      background: url("../img/categs/tbg_h.png") 0 0 no-repeat;
+    }
+  }
+}
 // =============================================================
+.services {
+  padding: 55px 0px 50px;
+  background-color: #1c242a;
+  @media (max-width: 650px) {
+    padding: 40px 0px 0px;
+  }
+  // .services__container
+  &__container {
+  }
+
+  // .services__header
+  &__header {
+    margin: 0px 0px 40px 0px;
+  }
+
+  // .services__row
+  &__row {
+    margin: 0px -50px;
+    @include flexbox();
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  // .services__column
+  &__column {
+    flex: 0 1 (100% / 3);
+    max-width: (100% / 3);
+    padding: 0px 50px;
+    margin: 0px 0px 50px 0px;
+    @media (max-width: 975px) {
+      flex: 0 1 (100% / 2);
+      max-width: (100% / 2);
+    }
+    @media (max-width: 650px) {
+      flex: 0 1 (100% / 1);
+      max-width: (100% / 1);
+      margin: 0px 0px 40px 0px;
+    }
+  }
+
+  // .services__item
+  &__item {
+  }
+}
+
 // =============================================================
 // =============================================================
 // =============================================================

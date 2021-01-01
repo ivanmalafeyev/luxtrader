@@ -3,6 +3,7 @@ const mySwiper = new Swiper(".main-slider__body", {
   // direction: "vertical",
   loop: true,
   autoHeight: false,
+  speed: 500,
 
   // If we need pagination
   // pagination: {
