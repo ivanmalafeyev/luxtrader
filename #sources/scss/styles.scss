@@ -502,8 +502,144 @@ body {
   &__item {
   }
 }
-
 // =============================================================
+.quotes {
+  padding: 60px 0px 75px 0px;
+  // .quotes__container
+  &__container {
+  }
+
+  // .quotes__header
+  &__header {
+  }
+
+  // .quotes__slider
+  &__slider {
+  }
+}
+.slider-quotes {
+  // .slider-quotes__slider
+  &__slider {
+  }
+
+  // .slider-quotes__body
+  &__body {
+  }
+
+  // .slider-quotes__slide
+  &__slide {
+    @include flexbox();
+    align-items: center;
+    opacity: 0 !important;
+    &.swiper-slide-active {
+      opacity: 1 !important;
+    }
+  }
+
+  // .slider-quotes__img
+  &__img {
+    flex: 0 0 ((320 / $mw) * 100%);
+    @include flexbox();
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  // .slider-quotes__body
+  &__content {
+    flex: 1 1 520px;
+    max-width: 520px;
+  }
+
+  // .slider-quotes__title
+  &__title {
+    color: #000000;
+    font-size: 25px;
+    line-height: (30 / 25);
+    font-style: italic;
+    text-align: left;
+    margin: 0px 0px (25 / 25) * 1em 0px;
+  }
+
+  // .slider-quotes__info
+  &__info {
+    color: #1c242a;
+    font-size: 15px;
+    p {
+      margin: 0px 0px 7px 0px;
+      &:last-child {
+        margin: 0px 0px 0px 0px;
+      }
+    }
+  }
+
+  // .slider-quotes__control
+  &__control {
+  }
+}
+.swiper-container {
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.control-slider-quotes {
+  @include flexbox();
+  justify-content: center;
+  align-items: center;
+  max-width: ((400 / $mw) * 100%);
+  margin: 0px auto;
+
+  // .control-slider-quotes__decor
+  &__decor {
+    flex: 0 1 (100% / 3);
+    max-width: (100% / 3);
+    @include flexbox();
+    align-items: center;
+    &:before {
+      content: "";
+      flex: 1 1 auto;
+      height: 1px;
+      width: 100%;
+      background-color: $mc;
+    }
+    &:after {
+      content: "";
+      flex: 0 0 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid $mc;
+      margin: 0px 0px 0px 5px;
+    }
+    &:last-child {
+      flex-direction: row-reverse;
+      &:after {
+        margin: 0px 5px 0px 0px;
+      }
+    }
+  }
+
+  // .control-slider-quotes__link
+  &__link {
+    flex: 0 1 (100% / 3);
+    max-width: (100% / 3);
+    text-align: center;
+  }
+  &__circle {
+    @include flexboxi();
+    width: 50px;
+    height: 50px;
+    border: 1px solid $mc;
+    border-radius: 50%;
+    background: url("../img/quotes/c.svg") center no-repeat;
+    cursor: pointer;
+  }
+}
+
 // =============================================================
 // =============================================================
 // =============================================================

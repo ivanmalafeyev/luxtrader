@@ -257,6 +257,28 @@ var myLotsSwiper = new Swiper(".lots__slide", {
     }
   }
 });
+var myQuotesSwiper = new Swiper(".slider-quotes__slider", {
+  // Optional parameters
+  // direction: "vertical",
+  loop: true,
+  speed: 800,
+  effect: "fade",
+  // autoHeight: false,
+  slidesPerView: 1,
+  // If we need pagination
+  // pagination: {
+  //   el: '.swiper-pagination',
+  // },
+  // Navigation arrows
+  navigation: {
+    nextEl: ".control-slider-quotes__circle" // prevEl: ".lots-slider-prev",
+
+  } // And if we need scrollbar
+  // scrollbar: {
+  // el: '.swiper-scrollbar',
+  // },
+
+});
 ;
 var userIcon = document.querySelector(".user-header__icon");
 var userMenu = document.querySelector(".user-header__menu");
