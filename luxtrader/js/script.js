@@ -117,6 +117,7 @@ function resize() {
   //   adiptiveHeader("header-menu", "header-top-lang", "header-top");
   //   adiptiveHeader("header-menu", "header-bottom-menu", "header-bottom__column");
   adiptiveHeader("menu__body", "actions-header__region", "actions-header");
+  adiptiveHeader("footer", "footer__info", "footer__column");
 }
 
 function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
@@ -124,7 +125,7 @@ function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
   var element = document.querySelector("." + elementClass);
   var returnPoint = document.querySelector("." + returnPointClass);
 
-  if (w < 768) {
+  if (w <= 768) {
     if (!element.classList.contains("done")) {
       element.classList.add("done");
       burgerMenu.append(element);
@@ -137,9 +138,9 @@ function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
         element.classList.remove("done");
 
         if (element.classList.contains(elementClass + "--right")) {
-          returnPoint.parentNode.lastChild.previousSibling.prepend(element);
+          returnPoint.parentNode.lastChild.previousSibling.append(element);
         } else {
-          returnPoint.prepend(element);
+          returnPoint.append(element);
         }
       }
     }
@@ -170,21 +171,22 @@ resize(); // let wo, ho, wi, hi;
 
 var menuIcon = document.querySelector(".icon-menu");
 var menu = document.querySelector(".menu__body");
-var links = document.querySelectorAll(".menu-header__link");
-menuIcon.addEventListener("click", function () {
-  function toggleClass(c) {
-    menuIcon.classList.toggle(c);
-    menu.classList.toggle(c);
-    [].forEach.call(links, function (lnk) {
-      lnk.classList.toggle("active");
-    });
-    document.body.classList.toggle("lock");
-  }
+var links = document.querySelectorAll(".menu__link");
 
-  toggleClass("active");
+function toggleClass(c) {
+  menuIcon.classList.toggle(c);
+  menu.classList.toggle(c);
+  [].forEach.call(links, function (lnk) {
+    lnk.classList.toggle("_active");
+  });
+  document.body.classList.toggle("lock");
+}
+
+menuIcon.addEventListener("click", function () {
+  toggleClass("_active");
 
   function linkCB() {
-    toggleClass("active");
+    toggleClass("_active");
     [].forEach.call(links, function (l) {
       l.removeEventListener("click", linkCB);
     });
@@ -309,7 +311,9 @@ if (userIcon) {
 
 var menuHeader = document.querySelector(".header");
 var mainBlock = document.querySelector(".mainblock");
-var scrolled = false; // first fullscreen parallax effect
+var scrolled = false;
+var blocks = [];
+var current = 0; // first fullscreen parallax effect
 // window.addEventListener("scroll", () => {
 //   const s = pageYOffset / 2;
 //   document.querySelector(
@@ -329,11 +333,21 @@ var scrolled = false; // first fullscreen parallax effect
 // });
 //smooth scroll from first fullscreen to content
 
-var gotos = document.querySelectorAll(".goto");
+var gotos = document.querySelectorAll("._goto");
 
 if (gotos) {
   [].forEach.call(gotos, function (e) {
     e.parentNode.addEventListener("click", function () {
+      // Array.prototype.forEach.call(links, (l) => {
+      //   l.classList.remove("_current");
+      // });
+      // e.classList.add("_current");
+      if (menuIcon) {
+        if (menuIcon.classList.contains("_active")) {
+          toggleClass("_active");
+        }
+      }
+
       var link = e.getAttribute("href");
 
       if (link) {
@@ -345,7 +359,31 @@ if (gotos) {
       }
     });
   });
-} // $(document).ready(function () {
+}
+
+function getBlocks() {
+  [].forEach.call(links, function (l) {
+    blocks.push(document.querySelector("." + l.getAttribute("href").split("#")[1]));
+  });
+}
+
+getBlocks();
+window.addEventListener("scroll", function (e) {
+  var boxes = [];
+  Array.prototype.forEach.call(blocks, function (b) {
+    boxes.push(Math.abs(b.getBoundingClientRect().top));
+  });
+  var min = Math.min.apply(Math, boxes);
+  var i = boxes.indexOf(min);
+
+  if (i != current) {
+    current = i;
+    Array.prototype.forEach.call(links, function (l) {
+      l.classList.remove("_current");
+    });
+    links[i].classList.add("_current");
+  }
+}); // $(document).ready(function () {
 //   if ($(".team__row").length > 0) {
 //     $(".team__row").slick({
 //       // autoplay: true,

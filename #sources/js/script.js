@@ -24,6 +24,8 @@ if (userIcon) {
 const menuHeader = document.querySelector(".header");
 const mainBlock = document.querySelector(".mainblock");
 let scrolled = false;
+const blocks = [];
+let current = 0;
 
 // first fullscreen parallax effect
 
@@ -47,10 +49,19 @@ let scrolled = false;
 // });
 
 //smooth scroll from first fullscreen to content
-const gotos = document.querySelectorAll(".goto");
+const gotos = document.querySelectorAll("._goto");
 if (gotos) {
   [].forEach.call(gotos, (e) => {
     e.parentNode.addEventListener("click", () => {
+      // Array.prototype.forEach.call(links, (l) => {
+      //   l.classList.remove("_current");
+      // });
+      // e.classList.add("_current");
+      if (menuIcon) {
+        if (menuIcon.classList.contains("_active")) {
+          toggleClass("_active");
+        }
+      }
       const link = e.getAttribute("href");
       if (link) {
         const box = document
@@ -64,6 +75,31 @@ if (gotos) {
     });
   });
 }
+
+function getBlocks() {
+  [].forEach.call(links, (l) => {
+    blocks.push(
+      document.querySelector("." + l.getAttribute("href").split("#")[1])
+    );
+  });
+}
+getBlocks();
+
+window.addEventListener("scroll", (e) => {
+  const boxes = [];
+  Array.prototype.forEach.call(blocks, (b) => {
+    boxes.push(Math.abs(b.getBoundingClientRect().top));
+  });
+  const min = Math.min(...boxes);
+  const i = boxes.indexOf(min);
+  if (i != current) {
+    current = i;
+    Array.prototype.forEach.call(links, (l) => {
+      l.classList.remove("_current");
+    });
+    links[i].classList.add("_current");
+  }
+});
 
 // $(document).ready(function () {
 //   if ($(".team__row").length > 0) {

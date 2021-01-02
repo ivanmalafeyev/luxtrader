@@ -1,0 +1,138 @@
+.footer {
+  padding: 45px 0px;
+  background-color: #1c242a;
+  @media (max-width: $md3+px) {
+    padding: 35px 0px;
+  }
+  @media (max-width: $md4+px) {
+    padding: 20px 0px;
+  }
+  // .footer__container
+  &__container {
+    @include flexbox();
+    @media (max-width: $md3+px) {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  // .footer__column
+  &__column {
+    flex-shrink: 0;
+    @media (max-width: $md3+px) {
+      margin: 0 0 10px 0;
+    }
+    &:last-child {
+      text-align: right;
+      @media (max-width: $md3+px) {
+        text-align: center;
+      }
+    }
+    &--full {
+      flex: 1 1 auto;
+    }
+  }
+
+  // .footer__logo
+  &__logo {
+    display: inline-block;
+    margin: 0px 0px 25px 0px;
+    width: 171px;
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 10px 0px;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  // .footer__info
+  &__info {
+    color: $mc;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    @media (max-width: $md3+px) {
+      margin-top: 15px;
+    }
+  }
+
+  // .footer__menu
+  &__menu {
+    margin: 0px 25px;
+    padding: 5px 0px 0px 0px;
+  }
+
+  // .footer__list
+  &__list {
+    @include flexbox();
+    flex-wrap: wrap;
+    @media (max-width: $md3+px) {
+      justify-content: center;
+      li {
+        margin: 0px 10px 0px 0px;
+      }
+    }
+    li {
+      margin: 0px 15px 0px 0px;
+    }
+  }
+
+  // .footer__link
+  &__link {
+    color: #ffffff;
+    font-family: "pfdin";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    @media (min-width: $md3+px) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // .footer__phone
+  &__phone {
+    padding: 5px 0px 0px 0px;
+    @include flexbox();
+    align-items: flex-start;
+    color: $mc;
+    font-family: "BravoRG";
+    font-size: 50px;
+    // line-height: 25px;
+    text-align: right;
+    text-transform: uppercase;
+    @media (max-width: $md1+px) {
+      font-size: 40px !important;
+    }
+    @media (max-width: $md3+px) {
+      justify-content: center;
+      text-align: center;
+      margin: 0px 0px 10px 0px;
+    }
+    small {
+      font-size: 25px;
+      margin: 2px 4px 0px 0px;
+      @media (max-width: $md1+px) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  // .footer__callback
+  &__callback {
+    display: inline-block;
+    color: $mc;
+    font-size: 14px;
+    line-height: 21px;
+    background: url("../img/footer/cb.svg") left center no-repeat;
+    padding: 0px 0px 0px 12px;
+    span {
+      border-bottom: 1px dashed;
+    }
+  }
+}

@@ -6,13 +6,14 @@ function resize() {
   //   adiptiveHeader("header-menu", "header-top-lang", "header-top");
   //   adiptiveHeader("header-menu", "header-bottom-menu", "header-bottom__column");
   adiptiveHeader("menu__body", "actions-header__region", "actions-header");
+  adiptiveHeader("footer", "footer__info", "footer__column");
 }
 
 function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
   let burgerMenu = document.querySelector("." + burgerMenuClass);
   let element = document.querySelector("." + elementClass);
   let returnPoint = document.querySelector("." + returnPointClass);
-  if (w < 768) {
+  if (w <= 768) {
     if (!element.classList.contains("done")) {
       element.classList.add("done");
       burgerMenu.append(element);
@@ -23,9 +24,9 @@ function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
       if (element.classList.contains("done")) {
         element.classList.remove("done");
         if (element.classList.contains(elementClass + "--right")) {
-          returnPoint.parentNode.lastChild.previousSibling.prepend(element);
+          returnPoint.parentNode.lastChild.previousSibling.append(element);
         } else {
-          returnPoint.prepend(element);
+          returnPoint.append(element);
         }
       }
     }
@@ -62,21 +63,22 @@ resize();
 
 const menuIcon = document.querySelector(".icon-menu");
 const menu = document.querySelector(".menu__body");
-const links = document.querySelectorAll(".menu-header__link");
+const links = document.querySelectorAll(".menu__link");
+
+function toggleClass(c) {
+  menuIcon.classList.toggle(c);
+  menu.classList.toggle(c);
+  [].forEach.call(links, (lnk) => {
+    lnk.classList.toggle("_active");
+  });
+  document.body.classList.toggle("lock");
+}
 
 menuIcon.addEventListener("click", () => {
-  function toggleClass(c) {
-    menuIcon.classList.toggle(c);
-    menu.classList.toggle(c);
-    [].forEach.call(links, (lnk) => {
-      lnk.classList.toggle("active");
-    });
-    document.body.classList.toggle("lock");
-  }
-  toggleClass("active");
+  toggleClass("_active");
 
   function linkCB() {
-    toggleClass("active");
+    toggleClass("_active");
     [].forEach.call(links, (l) => {
       l.removeEventListener("click", linkCB);
     });
