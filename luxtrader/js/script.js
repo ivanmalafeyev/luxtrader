@@ -206,7 +206,7 @@ menuIcon.addEventListener("click", function () {
 var mySwiper = new Swiper(".main-slider__body", {
   // Optional parameters
   // direction: "vertical",
-  loop: true,
+  // loop: true,
   // autoHeight: false,
   speed: 500,
   // If we need pagination

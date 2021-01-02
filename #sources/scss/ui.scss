@@ -33,6 +33,7 @@
       border: 1px solid $mc;
       @include rotate(-45deg);
       flex: 0 0 (25px * $sqrt12);
+      max-width: (25px * $sqrt12);
     }
     span {
       @include flexbox();
@@ -52,6 +53,7 @@
         border: 1px solid $mc;
         @include rotate(-45deg);
         flex: 0 0 (15px * $sqrt12);
+        max-width: (15px * $sqrt12);
         margin: 0px 6px 0 7px;
       }
     }
