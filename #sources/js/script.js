@@ -53,10 +53,6 @@ const gotos = document.querySelectorAll("._goto");
 if (gotos) {
   [].forEach.call(gotos, (e) => {
     e.parentNode.addEventListener("click", () => {
-      // Array.prototype.forEach.call(links, (l) => {
-      //   l.classList.remove("_current");
-      // });
-      // e.classList.add("_current");
       if (menuIcon) {
         if (menuIcon.classList.contains("_active")) {
           toggleClass("_active");

@@ -2,7 +2,7 @@ const mySwiper = new Swiper(".main-slider__body", {
   // Optional parameters
   // direction: "vertical",
   loop: true,
-  autoHeight: false,
+  // autoHeight: false,
   speed: 500,
 
   // If we need pagination
@@ -21,9 +21,11 @@ const mySwiper = new Swiper(".main-slider__body", {
   // el: '.swiper-scrollbar',
   // },
   breakpoints: {
-    320: {},
-    768: {
+    320: {
       autoHeight: true,
+    },
+    768: {
+      autoHeight: false,
     },
   },
 });

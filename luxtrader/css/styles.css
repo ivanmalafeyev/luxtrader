@@ -825,6 +825,10 @@ body.lock {
   min-width: 0;
 }
 
+.main-slider__item {
+  height: auto;
+}
+
 .main-slider__control {
   position: absolute;
   z-index: 2;
@@ -895,8 +899,8 @@ body.lock {
   font-size: 15px;
   line-height: 25px;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
 }
 
 .item-main-slider__btn {
@@ -987,6 +991,7 @@ body.lock {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
+  height: auto;
   padding: 0 50px;
 }
 

@@ -5,11 +5,16 @@ h = window.outerHeight;
 function resize() {
   //   adiptiveHeader("header-menu", "header-top-lang", "header-top");
   //   adiptiveHeader("header-menu", "header-bottom-menu", "header-bottom__column");
-  adiptiveHeader("menu__body", "actions-header__region", "actions-header");
+  adiptiveHeader("menu__body", "actions-header__region", "actions-header", 1);
   adiptiveHeader("footer", "footer__info", "footer__column");
 }
 
-function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
+function adiptiveHeader(
+  burgerMenuClass,
+  elementClass,
+  returnPointClass,
+  order = 0
+) {
   let burgerMenu = document.querySelector("." + burgerMenuClass);
   let element = document.querySelector("." + elementClass);
   let returnPoint = document.querySelector("." + returnPointClass);
@@ -26,7 +31,12 @@ function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
         if (element.classList.contains(elementClass + "--right")) {
           returnPoint.parentNode.lastChild.previousSibling.append(element);
         } else {
-          returnPoint.append(element);
+          if (order == 0) {
+            returnPoint.append(element);
+          } else {
+            returnPoint.prepend(element);
+            console.log("pre");
+          }
         }
       }
     }

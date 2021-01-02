@@ -76,6 +76,7 @@ body {
 
   // .main-slider__item
   &__item {
+    height: auto;
   }
 
   // .main-slider__control
@@ -132,7 +133,7 @@ body {
     font-family: "PT Sans";
     font-size: 15px;
     line-height: 25px;
-    flex: 1 1 auto;
+    flex: 1 0 auto;
   }
 
   //.item-main-slider__btn
@@ -221,6 +222,7 @@ body {
   // .slider-lots__slide
   &__slide {
     flex: 1 0 auto;
+    height: auto;
     padding: 0 50px;
     @media (max-width: $md1+px) {
       padding: 0 15px;

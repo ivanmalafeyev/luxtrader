@@ -116,11 +116,12 @@ h = window.outerHeight;
 function resize() {
   //   adiptiveHeader("header-menu", "header-top-lang", "header-top");
   //   adiptiveHeader("header-menu", "header-bottom-menu", "header-bottom__column");
-  adiptiveHeader("menu__body", "actions-header__region", "actions-header");
+  adiptiveHeader("menu__body", "actions-header__region", "actions-header", 1);
   adiptiveHeader("footer", "footer__info", "footer__column");
 }
 
 function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
+  var order = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
   var burgerMenu = document.querySelector("." + burgerMenuClass);
   var element = document.querySelector("." + elementClass);
   var returnPoint = document.querySelector("." + returnPointClass);
@@ -140,7 +141,12 @@ function adiptiveHeader(burgerMenuClass, elementClass, returnPointClass) {
         if (element.classList.contains(elementClass + "--right")) {
           returnPoint.parentNode.lastChild.previousSibling.append(element);
         } else {
-          returnPoint.append(element);
+          if (order == 0) {
+            returnPoint.append(element);
+          } else {
+            returnPoint.prepend(element);
+            console.log("pre");
+          }
         }
       }
     }
@@ -201,7 +207,7 @@ var mySwiper = new Swiper(".main-slider__body", {
   // Optional parameters
   // direction: "vertical",
   loop: true,
-  autoHeight: false,
+  // autoHeight: false,
   speed: 500,
   // If we need pagination
   // pagination: {
@@ -217,9 +223,11 @@ var mySwiper = new Swiper(".main-slider__body", {
   // el: '.swiper-scrollbar',
   // },
   breakpoints: {
-    320: {},
-    768: {
+    320: {
       autoHeight: true
+    },
+    768: {
+      autoHeight: false
     }
   }
 });
@@ -338,10 +346,6 @@ var gotos = document.querySelectorAll("._goto");
 if (gotos) {
   [].forEach.call(gotos, function (e) {
     e.parentNode.addEventListener("click", function () {
-      // Array.prototype.forEach.call(links, (l) => {
-      //   l.classList.remove("_current");
-      // });
-      // e.classList.add("_current");
       if (menuIcon) {
         if (menuIcon.classList.contains("_active")) {
           toggleClass("_active");
