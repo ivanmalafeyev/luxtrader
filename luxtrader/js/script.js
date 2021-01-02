@@ -35,7 +35,7 @@ if (inputs) {
     e.isPlaceholder = isPlaceholder;
 
     if (dv) {
-      e.style.color = "rgba(255, 255, 255, ".concat(PLACEHOLDER_OPACITY, ")");
+      e.style.color = "rgba(39, 39, 39, ".concat(PLACEHOLDER_OPACITY, ")");
       e.value = dv;
     }
 
@@ -44,7 +44,7 @@ if (inputs) {
         e.value = "";
         isPlaceholder = false;
         e.isPlaceholder = isPlaceholder;
-        e.style.color = "rgba(255, 255, 255, 1)";
+        e.style.color = "rgba(39, 39, 39, 1)";
       }
     });
     e.addEventListener("blur", function () {
@@ -52,13 +52,13 @@ if (inputs) {
         e.value = dv;
         isPlaceholder = true;
         e.isPlaceholder = isPlaceholder;
-        e.style.color = "rgba(255, 255, 255, ".concat(PLACEHOLDER_OPACITY, ")");
+        e.style.color = "rgba(39, 39, 39, ".concat(PLACEHOLDER_OPACITY, ")");
       }
     });
   });
 }
 
-var form = document.querySelector(".forms");
+var form = document.querySelector(".form");
 
 if (form) {
   form.addEventListener("submit", function (e) {
@@ -94,13 +94,14 @@ function formValidate() {
 }
 
 function formAddError(input) {
-  input.parentElement.classList.add("err");
-  input.classList.add("err");
+  input.parentElement.parentElement.classList.add("_err");
+  input.classList.add("_err");
+  input.value = "Ошибка";
 }
 
 function formRemoveError(input) {
-  input.parentElement.classList.remove("err");
-  input.classList.remove("err");
+  input.parentElement.parentElement.classList.remove("_err");
+  input.classList.remove("_err");
 }
 
 function emailTest(input) {
@@ -263,7 +264,7 @@ var myQuotesSwiper = new Swiper(".slider-quotes__slider", {
   loop: true,
   speed: 800,
   effect: "fade",
-  // autoHeight: false,
+  autoHeight: false,
   slidesPerView: 1,
   // If we need pagination
   // pagination: {
@@ -273,11 +274,19 @@ var myQuotesSwiper = new Swiper(".slider-quotes__slider", {
   navigation: {
     nextEl: ".control-slider-quotes__circle" // prevEl: ".lots-slider-prev",
 
-  } // And if we need scrollbar
+  },
+  // And if we need scrollbar
   // scrollbar: {
   // el: '.swiper-scrollbar',
   // },
-
+  breakpoints: {
+    320: {
+      autoHeight: true
+    },
+    650: {
+      autoHeight: false
+    }
+  }
 });
 ;
 var userIcon = document.querySelector(".user-header__icon");

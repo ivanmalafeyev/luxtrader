@@ -6,7 +6,7 @@ if (inputs) {
     let isPlaceholder = true;
     e.isPlaceholder = isPlaceholder;
     if (dv) {
-      e.style.color = `rgba(255, 255, 255, ${PLACEHOLDER_OPACITY})`;
+      e.style.color = `rgba(39, 39, 39, ${PLACEHOLDER_OPACITY})`;
       e.value = dv;
     }
     e.addEventListener("focus", () => {
@@ -14,7 +14,7 @@ if (inputs) {
         e.value = "";
         isPlaceholder = false;
         e.isPlaceholder = isPlaceholder;
-        e.style.color = `rgba(255, 255, 255, 1)`;
+        e.style.color = `rgba(39, 39, 39, 1)`;
       }
     });
     e.addEventListener("blur", () => {
@@ -22,12 +22,12 @@ if (inputs) {
         e.value = dv;
         isPlaceholder = true;
         e.isPlaceholder = isPlaceholder;
-        e.style.color = `rgba(255, 255, 255, ${PLACEHOLDER_OPACITY})`;
+        e.style.color = `rgba(39, 39, 39, ${PLACEHOLDER_OPACITY})`;
       }
     });
   });
 }
-const form = document.querySelector(".forms");
+const form = document.querySelector(".form");
 if (form) {
   form.addEventListener("submit", (e) => {
     if (formValidate(form) === 0) {
@@ -62,13 +62,14 @@ function formValidate() {
 }
 
 function formAddError(input) {
-  input.parentElement.classList.add("err");
-  input.classList.add("err");
+  input.parentElement.parentElement.classList.add("_err");
+  input.classList.add("_err");
+  input.value = "Ошибка";
 }
 
 function formRemoveError(input) {
-  input.parentElement.classList.remove("err");
-  input.classList.remove("err");
+  input.parentElement.parentElement.classList.remove("_err");
+  input.classList.remove("_err");
 }
 
 function emailTest(input) {

@@ -9,7 +9,7 @@ $mw: 970;
 $md1: $mw + 12;
 // $md2: 979;
 $md2: 767.98;
-$md3: 767.98;
+$md3: 768;
 $md4: 500;
 
 @mixin font($font_name, $file_name, $weight, $style) {
@@ -286,6 +286,12 @@ body {
 // =============================================================
 .categories {
   padding: 0px 0px 75px 0px;
+  @media (max-width: $md3+px) {
+    padding: 0px 0px 40px 0px;
+  }
+  @media (max-width: $md4+px) {
+    padding: 0px 0px 10px 0px;
+  }
   // .categories__container
   &__container {
     overflow: hidden;
@@ -423,6 +429,12 @@ body {
 
   &__text {
     margin: 85px 0px 0px 0px;
+    @media (max-width: $md3+px) {
+      margin: 40px 0px 0px 0px;
+    }
+    @media (max-width: $md4+px) {
+      margin: 0px 0px 0px 0px;
+    }
   }
 }
 
@@ -431,6 +443,9 @@ body {
   font-size: 15px;
   line-height: (25 / 15);
   text-align: left;
+  @media (max-width: $md3+px) {
+    text-align: justify;
+  }
   p {
     margin: 0px 0px 25px 0px;
     &:last-child {
@@ -454,6 +469,13 @@ body {
       width: 85px;
       height: 11px;
       background: url("../img/categs/tbg_h.png") 0 0 no-repeat;
+      @media (max-width: $md3+px) {
+        display: none;
+      }
+    }
+    @media (max-width: $md3+px) {
+      padding: 10px 0px 20px 0px;
+      background: none !important;
     }
   }
 }
@@ -505,16 +527,28 @@ body {
 // =============================================================
 .quotes {
   padding: 60px 0px 75px 0px;
+  @media (max-width: $md3+px) {
+    padding: 50px 0px 55px 0px;
+  }
+  @media (max-width: $md4+px) {
+    padding: 40px 0px 35px 0px;
+  }
   // .quotes__container
   &__container {
   }
 
   // .quotes__header
   &__header {
+    @media (max-width: 650px) {
+      margin: 0px 0px 20px 0px;
+    }
   }
 
   // .quotes__slider
   &__slider {
+    @media (max-width: 650px) {
+      margin: 0px 0px 20px 0px;
+    }
   }
 }
 .slider-quotes {
@@ -533,6 +567,9 @@ body {
     opacity: 0 !important;
     &.swiper-slide-active {
       opacity: 1 !important;
+    }
+    @media (max-width: 650px) {
+      display: block;
     }
   }
 
@@ -592,6 +629,10 @@ body {
   align-items: center;
   max-width: ((400 / $mw) * 100%);
   margin: 0px auto;
+  @media (max-width: 650px) {
+    max-width: none;
+    margin: 0px 0px 0px 0px;
+  }
 
   // .control-slider-quotes__decor
   &__decor {
@@ -639,8 +680,199 @@ body {
     cursor: pointer;
   }
 }
-
 // =============================================================
+.info {
+  padding: 0px 0px 20px 0px;
+  @media (max-width: $md3+px) {
+    padding: 0px 0px 0px 0px;
+  }
+  // .info__container
+  &__container {
+  }
+
+  // .info__row
+  &__row {
+    @include flexbox();
+    margin: 0px -25px;
+    flex-wrap: wrap;
+    @media (max-width: $md3+px) {
+      display: block;
+    }
+  }
+
+  // .info__column
+  &__column {
+    flex: 0 1 (100% / 2);
+    padding: 0px 25px;
+    margin: 0px 0px 55px 0px;
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 30px 0px;
+    }
+    &:last-child {
+      flex: 1 1 (100% / 1);
+    }
+  }
+
+  // .info__block
+  &__block {
+  }
+
+  // .info__title
+  &__title {
+  }
+
+  // .info__content
+  &__content {
+  }
+
+  // .info__item
+  &__item {
+    color: #333333;
+    font-size: 15px;
+    line-height: (25 / 15);
+    margin: 0px 0px 30px 0px;
+    @media (max-width: $md3+px) {
+      margin: 0px 0px 15px 0px;
+    }
+  }
+
+  // .info__date
+  &__date {
+    color: $mc;
+    font-size: 12px;
+    line-height: (25 / 12);
+    margin: 0px 0px 0px 0px;
+  }
+
+  // .info__label
+  &__label {
+    color: #333333;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  // .info__text
+  &__text {
+  }
+
+  // .info__subscribe
+  &__subscribe {
+  }
+}
+.title-info {
+  @include flexbox();
+  align-items: center;
+
+  color: #000000;
+  font-family: "pfdin";
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+  margin: 0px 0px 28px 0px;
+  @media (max-width: $md3+px) {
+    margin: 0px 0px 18px 0px;
+  }
+
+  span {
+    &:first-child {
+      width: 22px;
+      margin: 0px 17px 0px 0px;
+    }
+  }
+}
+.subscribe {
+  // .subscribe__title
+  &__title {
+  }
+
+  // .subscribe__body
+  &__body {
+    @include flexbox();
+    margin: 0px -25px;
+    @media (max-width: $md3+px) {
+      display: block;
+    }
+  }
+
+  // .subscribe__column
+  &__column {
+    flex: 0 1 (100% / 2);
+    padding: 0px 25px;
+  }
+
+  // .subscribe__text
+  &__text {
+    color: #333333;
+    font-size: 15px;
+    line-height: (25 / 15);
+    text-align: left;
+    @media (max-width: $md3+px) {
+      margin: 0 0 15px 0;
+    }
+  }
+
+  // .subscribe__form
+  &__form {
+  }
+}
+.form-subscribe {
+  height: 50px;
+  border: 3px solid $mc;
+  background-color: #ffffff;
+  @include flexbox();
+  align-items: center;
+  padding: 0 0px 0 15px;
+  @media (max-width: $md3+px) {
+    padding: 0 0px 0 0px;
+  }
+  // .form-subscribe__input
+  &__input {
+    flex: 1 1 auto;
+  }
+
+  // .form-subscribe__btn
+  &__btn {
+    height: 100%;
+    flex: 0 1 98px;
+    position: relative;
+    background-color: transparent;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include tr(0, -50%, 0);
+      width: 1px;
+      height: 32px;
+      background-color: $mc;
+    }
+    span {
+      display: block;
+      margin: 0px 20px 0px 0px;
+      color: #1c242a;
+      font-family: "pfdin";
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 25.28px;
+      // text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 2.12px;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("../img/info/arrow.svg") right center no-repeat;
+        @include tr(-18px, 0, 0);
+      }
+    }
+  }
+}
 // =============================================================
 // =============================================================
 // =============================================================
@@ -670,17 +902,26 @@ textarea {
   padding: 5px 10px;
   border-radius: 0 !important;
   width: 100%;
+  color: rgb(39, 39, 39);
+  font-size: 15px;
+  line-height: (25 / 15);
+  text-align: left;
+
   // border: 1px solid #ffffff;
   // height: 48px;
 
   display: block;
   &:focus {
   }
-  &.err {
+  &._err {
     //
     border-color: red;
+    // color: red !important;
     //
   }
+}
+form._err {
+  border-color: red;
 }
 textarea.input {
   resize: none;

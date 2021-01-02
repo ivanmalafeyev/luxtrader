@@ -75,7 +75,7 @@ const myQuotesSwiper = new Swiper(".slider-quotes__slider", {
   loop: true,
   speed: 800,
   effect: "fade",
-  // autoHeight: false,
+  autoHeight: false,
   slidesPerView: 1,
 
   // If we need pagination
@@ -93,4 +93,12 @@ const myQuotesSwiper = new Swiper(".slider-quotes__slider", {
   // scrollbar: {
   // el: '.swiper-scrollbar',
   // },
+  breakpoints: {
+    320: {
+      autoHeight: true,
+    },
+    650: {
+      autoHeight: false,
+    },
+  },
 });
